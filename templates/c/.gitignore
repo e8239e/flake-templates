@@ -1,0 +1,5 @@
+/.direnv/
+.nixd.json
+.ccls-cache/
+events.json
+*.o
