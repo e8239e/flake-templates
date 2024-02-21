@@ -9,11 +9,11 @@
   outputs = inputs@{ self, nixpkgs, flake-utils, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let pkgs = import nixpkgs { inherit system; };
-      in {
-        formatter = pkgs.nixfmt;
+      in rec {
+        formatter = pkgs.nixpkgs-fmt;
         devShells.default = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
-            nixfmt
+            formatter
             valgrind # test for memory errors & leaks
             bear # extract compile commands for lsp
             clang-tools # lsp (clangd)

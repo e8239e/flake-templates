@@ -1,1 +1,1 @@
-{ formatting.command = "nixfmt"; }
+{ formatting.command = "nixpkgs-fmt"; }

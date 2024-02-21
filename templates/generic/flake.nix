@@ -9,10 +9,10 @@
   outputs = inputs@{ self, nixpkgs, flake-utils, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let pkgs = import nixpkgs { inherit system; };
-      in {
+      in rec {
         formatter = pkgs.nixfmt;
         devShells.default = pkgs.mkShell {
-          nativeBuildInputs = with pkgs; [ nixfmt ];
+          nativeBuildInputs = with pkgs; [ formatter ];
           buildInputs = with pkgs; [ ];
         };
       });
