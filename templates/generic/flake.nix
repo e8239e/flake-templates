@@ -10,7 +10,7 @@
     flake-utils.lib.eachDefaultSystem (system:
       let pkgs = import nixpkgs { inherit system; };
       in rec {
-        formatter = pkgs.nixfmt;
+        formatter = pkgs.nixpkgs-fmt;
         devShells.default = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [ formatter ];
           buildInputs = with pkgs; [ ];
